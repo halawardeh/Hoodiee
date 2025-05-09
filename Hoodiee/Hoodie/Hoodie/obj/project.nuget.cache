@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UnqODIbHfXM=",
+  "dgSpecHash": "rbEIfAshKIo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Orange\\Desktop\\backUppp\\Hoodie\\Hoodiee\\Hoodie\\Hoodie\\Hoodie.csproj",
+  "projectFilePath": "C:\\Users\\Orange\\Desktop\\Hoodiee\\Hoodiee\\Hoodie\\Hoodie\\Hoodie.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Orange\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Orange\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

@@ -3,22 +3,19 @@
 }
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+<div class="alert alert-success" role="alert">
+    Payment completed successfully!
+</div>
+
 <script>
-    // Show SweetAlert when the page loads
-    window.onload = function() {
-        Swal.fire({
-            title: 'Payment Successful!',
-            text: 'Thank you for your order. The payment has been successfully processed.',
-            icon: 'success',
-            confirmButtonText: 'OK'
-        }).then((result) => {
-            // If the user clicks "OK", redirect to the Home page
-            if (result.isConfirmed) {
-                window.location.href = '@Url.Action("Index", "Home")';
-            }
-        });
-    };
+    setTimeout(function() {
+        // إعادة التوجيه إلى الصفحة الرئيسية بعد 3 ثواني
+        window.location.href = '@Url.Action("Index", "Home")';
+    }, 3000); // 3000ms = 3 seconds
 </script>
+
 
 <style>
     .payment-success {

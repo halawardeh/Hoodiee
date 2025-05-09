@@ -84,7 +84,7 @@ namespace Hoodie.Controllers
                 }
                 else
                 {
-                    TempData["Message"] = "Incorrect password!";
+                    TempData["Message"] = "Incorrect Email or password!";
                     return RedirectToAction("Login");
                 }
             }
@@ -259,7 +259,7 @@ namespace Hoodie.Controllers
 
             _context.SaveChanges();
 
-            return RedirectToAction("CartDetails");
+            return RedirectToAction("Index", "Home"); // العودة للصفحة الرئيسية
         }
 
         public IActionResult CartDetails()
@@ -317,8 +317,9 @@ namespace Hoodie.Controllers
             var user = _context.Users.FirstOrDefault(u => u.Email == uEmail);
             var product = _context.Products.FirstOrDefault(p => p.ProductId == productID);
 
-            if (user == null)
+            if (user == null || uEmail==null)
                 return RedirectToAction("Login", "User");
+
 
             if (product == null)
                 return NotFound();
@@ -361,6 +362,9 @@ namespace Hoodie.Controllers
             var sessionEmail = HttpContext.Session.GetString("email");
             var user = _context.Users.FirstOrDefault(u => u.Email == sessionEmail);
 
+            if(sessionEmail==null)
+                return RedirectToAction("Login", "User");
+
             if (user == null)
                 return RedirectToAction("Login", "User");
 
@@ -400,7 +404,7 @@ namespace Hoodie.Controllers
             return RedirectToAction("OrderDetails", new { orderId = newOrder.OrderId });
         }
 
-       
+
         public IActionResult OrderDetails(int orderId)
         {
             var sessionEmail = HttpContext.Session.GetString("email");
@@ -411,28 +415,17 @@ namespace Hoodie.Controllers
 
             var order = _context.Orders
                 .Where(o => o.OrderId == orderId && o.UserId == user.UserId)
+                .Include(o => o.OrderItems)
+                    .ThenInclude(oi => oi.Product)
                 .FirstOrDefault();
 
             if (order == null)
                 return RedirectToAction("Index", "Home");
 
-            var orderItems = _context.OrderItems
-                .Where(oi => oi.OrderId == order.OrderId)
-                .Include(oi => oi.Product)
-                .ToList();
+            order.TotalAmount = order.OrderItems.Sum(oi => oi.Price * oi.Quantity);
 
-            var orderDetailsViewModel = new Order
-            {
-                OrderId = order.OrderId,
-                OrderDate = order.OrderDate,
-                Status = order.Status,
-                TotalAmount = orderItems.Sum(oi => oi.Price * oi.Quantity),
-                OrderItems = orderItems
-            };
-
-            return View(orderDetailsViewModel);
+            return View(order);
         }
-
 
         [HttpPost]
         public IActionResult CheckoutConfirmation(int orderId)
@@ -482,7 +475,6 @@ namespace Hoodie.Controllers
             if (user == null)
                 return RedirectToAction("Login", "User");
 
-            // تفريغ سلة التسوق بعد إتمام الدفع
             var cartItems = _context.Carts.Where(c => c.UserId == user.UserId).ToList();
             if (cartItems.Any())
             {
@@ -490,9 +482,9 @@ namespace Hoodie.Controllers
                 _context.SaveChanges();
             }
 
-            // إعادة توجيه المستخدم إلى صفحة عرض الدفع الناجح
             return View(); // يعرض View الـ PaymentSuccess.cshtml
         }
+
 
         //-------- End if User Checkout ---------
 
@@ -513,6 +505,8 @@ namespace Hoodie.Controllers
                 return RedirectToAction("Login", "User");
 
             var ordersItem = _context.Orders
+                .Include(o => o.OrderItems)  // تضمين OrderItems
+                .ThenInclude(oi => oi.Product)  // تضمين المنتجات داخل OrderItems
                 .Where(u => u.UserId == user.UserId)
                 .ToList();
 

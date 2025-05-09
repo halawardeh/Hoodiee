@@ -12,17 +12,17 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ipyn7i1a7g"},{"Name":"integrity","Value":"sha256-do5Iux6\u002BgTwFaACTsWuJ46UgwDxFOyfps\u002Bw0b/Y4Zuo="},{"Name":"label","Value":"_content/Hoodie/css/default.css"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4449"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022do5Iux6\u002BgTwFaACTsWuJ46UgwDxFOyfps\u002Bw0b/Y4Zuo=\u0022"},{"Name":"Last-Modified","Value":"Thu, 03 Apr 2025 15:54:16 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Hoodie/css/ProductDetails.7k4ywniajb.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\ProductDetails.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"7k4ywniajb"},{"Name":"integrity","Value":"sha256-aTjyTOZDK5KCIODc9vrnQXBYPNzmQmaZejVffppv99k="},{"Name":"label","Value":"_content/Hoodie/css/ProductDetails.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4118"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022aTjyTOZDK5KCIODc9vrnQXBYPNzmQmaZejVffppv99k=\u0022"},{"Name":"Last-Modified","Value":"Fri, 09 May 2025 18:25:38 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Hoodie/css/ProductDetails.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\ProductDetails.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-/G9wsjzW5ow8S9KKhXnqDTDqvMWmDdnJO2urWNF1hWQ="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"7147"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022/G9wsjzW5ow8S9KKhXnqDTDqvMWmDdnJO2urWNF1hWQ=\u0022"},{"Name":"Last-Modified","Value":"Thu, 17 Apr 2025 13:11:00 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Hoodie/css/ProductDetails.grudv9lclc.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\ProductDetails.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"grudv9lclc"},{"Name":"integrity","Value":"sha256-/G9wsjzW5ow8S9KKhXnqDTDqvMWmDdnJO2urWNF1hWQ="},{"Name":"label","Value":"_content/Hoodie/css/ProductDetails.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"7147"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022/G9wsjzW5ow8S9KKhXnqDTDqvMWmDdnJO2urWNF1hWQ=\u0022"},{"Name":"Last-Modified","Value":"Thu, 17 Apr 2025 13:11:00 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-aTjyTOZDK5KCIODc9vrnQXBYPNzmQmaZejVffppv99k="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4118"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022aTjyTOZDK5KCIODc9vrnQXBYPNzmQmaZejVffppv99k=\u0022"},{"Name":"Last-Modified","Value":"Fri, 09 May 2025 18:25:38 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Hoodie/css/site.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>

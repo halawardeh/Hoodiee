@@ -25,15 +25,29 @@ namespace Hoodie.Controllers
             return View(subcategories);
         }
 
-        //present products in this sub category
+      
+
         public IActionResult BySubCategory(int subcateoryID)
         {
+            // Get the subcategory by its ID
+            var subcategory = _context.SubCategories.FirstOrDefault(s => s.Id == subcateoryID);
+
+            if (subcategory == null)
+            {
+                return NotFound();
+            }
+
+            // Get the category ID related to that subcategory
+            var categoryId = subcategory.CategoryId;
+
+            // Get all products where CategoryId matches
             var products = _context.Products
-                .Where(p => p.CategoryId == subcateoryID)
+                .Where(p => p.CategoryId == categoryId)
                 .ToList();
 
             return View(products);
         }
+
 
         public IActionResult ProductDetails(int id)
         {
