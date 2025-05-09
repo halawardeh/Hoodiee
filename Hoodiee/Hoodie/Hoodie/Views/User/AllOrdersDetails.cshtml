@@ -1,0 +1,48 @@
+﻿
+@model Hoodie.Models.Order
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Order Details</h2>
+
+@if (Model != null)
+{
+    <p><strong>Order ID:</strong> @Model.OrderId</p>
+    <p><strong>Order Date:</strong> @(Model.OrderDate.HasValue ? Model.OrderDate.Value.ToString("dd/MM/yyyy") : "Not Available")</p>
+    <p><strong>Status:</strong> @Model.Status</p>
+    <p><strong>Total Amount:</strong> @((decimal)Model.TotalAmount)</p>
+
+    <h3>Order Items</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderItems)
+            {
+                <tr>
+                    <td>@item.Product.Name</td>
+                    <td>@item.Quantity</td>
+                    <td>@((decimal)item.Product.Price)</td>
+                    <td>@(item.Product.Price * item.Quantity)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <form asp-action="CheckoutConfirmation" method="post" class="mt-4">
+        <input type="hidden" name="orderId" value="@Model.OrderId" />
+        <button type="submit" class="btn btn-success">Confirm & Pay</button>
+    </form>
+}
+else
+{
+    <p class="text-danger">No order found.</p>
+}

@@ -1,0 +1,45 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    // Show SweetAlert when the page loads
+    window.onload = function() {
+        Swal.fire({
+            title: 'Payment Successful!',
+            text: 'Thank you for your order. The payment has been successfully processed.',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        }).then((result) => {
+            // If the user clicks "OK", redirect to the Home page
+            if (result.isConfirmed) {
+                window.location.href = '@Url.Action("Index", "Home")';
+            }
+        });
+    };
+</script>
+
+<style>
+    .payment-success {
+        text-align: center;
+        padding: 50px;
+    }
+
+    .success-icon {
+        width: 100px;
+        height: 100px;
+        margin: 20px;
+    }
+
+    h2 {
+        color: #4CAF50;
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 18px;
+        color: #555;
+    }
+</style>

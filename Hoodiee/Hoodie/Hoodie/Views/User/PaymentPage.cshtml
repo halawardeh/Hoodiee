@@ -1,0 +1,48 @@
+﻿@model Order
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- CHECK OUT SECTION -->
+<section class="clearfix checkout">
+    <div class="container">
+        <form method="post" asp-action="PaymentPagePost">
+            <input type="hidden" name="OrderId" value="@Model.OrderId" />
+            <div class="panel panel-default checkInfo">
+                <div class="panel-heading patternbg">1. Billing</div>
+                <div class="panel-body">
+                    <div class="form-group row">
+                        <label class="control-label text-md-right col-md-3 col-xl-2" for="number">Card Number</label>
+                        <div class="col-md-7">
+                            <input type="text" name="CardNumber" class="form-control" id="number" placeholder="###.###.###" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label text-md-right col-md-3 col-xl-2" for="expiry">Expires on:</label>
+                        <div class="col-md-7">
+                            <input type="text" class="form-control" id="expiry" name="ExpiryDate" placeholder="MM/YY" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label text-md-right col-md-3 col-xl-2" for="cvcnumber">Security Code:</label>
+                        <div class="col-md-7">
+                            <input type="text" class="form-control" id="cvcnumber" name="CVC" placeholder="3-digit code" maxlength="4" pattern="\d{3,4}" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-3 col-xl-2"></div>
+                        <div class="col-md-7">
+                            <button type="submit" class="btn btn-primary">Complete payment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+</section>
+
